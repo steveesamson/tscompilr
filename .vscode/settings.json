@@ -11,7 +11,6 @@
       "autoFix": true
     }
   ],
-  "prettier.eslintIntegration": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.autoIndent": true,

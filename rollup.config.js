@@ -7,7 +7,7 @@ import pkg from "./package.json";
 const isProduction = process.env.NODE_ENV === "production";
 
 export default (async () => ({
-  input: "src/index.tsx",
+  input: "src/index.ts",
   output: [
     {
       file: pkg.main,

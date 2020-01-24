@@ -1,0 +1,26 @@
+#tests
+test
+coverage
+ws
+
+#build tools
+.travis.yml
+.gitignore
+.npmignore
+.prettierignore
+jest.config.js
+jest.setup.ts
+preInstall.js
+.tsconfig.json
+
+yarn-error.log
+
+#linters
+.eslintrc*
+
+#editor settings
+.editor.config
+.vscode
+.env
+
+src

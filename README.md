@@ -1,58 +1,104 @@
-# Typescript-rollup-starter
+# tscompilr
 
-This is a boiler-plate for both library authors and application developers targetting TypeScript, rollup.js bundler and jest for tests.
-
+This is a utility for transpiling TypeScript files to equivalent JavaScript files.
 
 ## Prerequisite
 
 - [Node.js](https://nodejs.org)
-- [Git](https://git-scm.com)
+
+## Installation
+
+With **`npm`**:
+
+```cli
+npm install tscompilr --save
+```
+
+With **`yarn`**:
+
+```cli
+yarn add tscompilr
+```
 
 ## Usage
 
-Clone this repo as another name like so:
+In order to use **`tscompilr`**, do the following:
 
-```cli
+### CommonJS
 
-$ git clone https://github.com/steveesamson/typescript-rollup-starter.git [project]
-```
+```js
+const { compile } = require("tscompilr");
 
-For instance, when project is **`todo`**:
+/* Array of files */
+const files = ['src/file-a.ts', 'src/file-b.ts', ...];
 
-```cli
+/* Every valid TypeScript compiler options is allowed. */
+const compilerOptions = {
+        module: "commonjs",
+        outDir: "dist",
+        noEmitOnError: true,
+        rootDir:  "src"
+      };
 
-$ git clone https://github.com/steveesamson/typescript-rollup-starter.git todo
-
-```    
-
-```cli
-    
-$ cd todo
-
-$ npm install
-
-```    
-
-## React.js
-
-In order to test React components, using enzyme, please install the following:
-
-- enzyme
-- @types/enzyme
-- enzyme-adapter-react-16
-- @types/enzyme-adapter-react-16
-
-Also, ensure to register the `jest.setup.ts` inside `jest.config.js` by adding it like so:
-
-```javascript
-
-"setupFilesAfterEnv": ["<rootDir>/jest.setup.ts"]
+/* transpile */
+compile(files, compilerOptions, skippedTranspiling =>{
+    if(!skippedTranspiling){
+        console.log("Files successfully transpiled")
+    }
+})
 
 ```
 
-## Creating Tests
+### ES6
 
-Write your tests inside the test folder using **`[module_name].spec.ts`** as test name template e.g **`LoginModule.spec.ts or LoginModule.spec.tsx`** Note `.tsx` for JSX e.g for react components.
+```js
+import { compile } from "tscompilr";
+
+/* Array of files */
+const files = ['src/file-a.ts', 'src/file-b.ts', ...];
+
+/* Every valid TypeScript compiler options is allowed. */
+const compilerOptions = {
+        module: "commonjs",
+        outDir: "dist",
+        noEmitOnError: true,
+        rootDir:  "src"
+      };
+
+/* transpile */
+compile(files, compilerOptions, skippedTranspiling =>{
+    if(!skippedTranspiling){
+        console.log("Files successfully transpiled")
+    }
+})
+
+```
+
+### TypeScript
+
+```js
+import { compile } from "tscompilr";
+import ts from "typescript";
+
+/* Array of files */
+const files:string[] = ['src/file-a.ts', 'src/file-b.ts', ...];
+
+/* Every valid TypeScript compiler options is allowed. */
+const compilerOptions:ts.CompilerOptions = {
+        module: ts.ModuleKind.CommonJS,
+        outDir: "dist",
+        noEmitOnError: true,
+        rootDir: "src"
+      };
+
+/* transpile */
+compile(files, compilerOptions, (skippedTranspiling:boolean) =>{
+    if(!skippedTranspiling){
+        console.log("Files successfully transpiled")
+    }
+})
+
+```
 
 ## Running Tests
 
@@ -60,7 +106,10 @@ Write your tests inside the test folder using **`[module_name].spec.ts`** as tes
 
 $ npm run test
 
+or
+
+$ yarn test
+
 ```
 
-Check the scripts key in `package.json ` for the complete list of targets.
-
+Check the scripts key in `package.json` for the complete list of targets.

@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/steveesamson/tscompilr.svg?branch=master)](https://travis-ci.org/steveesamson/tscompilr)
+[![Coverage Status](https://coveralls.io/repos/github/steveesamson/tscompilr/badge.svg?branch=master)](https://coveralls.io/github/steveesamson/tscompilr?branch=master)
+
 # tscompilr
 
 This is a utility for transpiling TypeScript files to equivalent JavaScript files.

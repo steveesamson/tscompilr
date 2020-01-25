@@ -44,4 +44,19 @@ describe("tscompilr", () => {
       }
     );
   });
+  it("transpile all none-existing .ts files in tsFolder directory to .js files in jsFolder with error", done => {
+    compile(
+      ["./tsFolder/noneFile.ts"],
+      {
+        module: ts.ModuleKind.CommonJS,
+        outDir: join(__dirname, "jsFolder"),
+        noEmitOnError: true,
+        rootDir: join(__dirname, "tsFolder")
+      },
+      skipped => {
+        expect(skipped).toBeTruthy();
+        done();
+      }
+    );
+  });
 });

@@ -10,7 +10,7 @@
   "module": "dist/index.esm.js",
   "scripts": {
     "test": "jest --passWithNoTests",
-    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test:coverage": "jest --coverage",
     "prebuild": "rimraf dist",
     "lint": "prettier-eslint 'src/**/*.ts' --write",
     "build": "NODE_ENV=production rollup -c",

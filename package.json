@@ -12,7 +12,7 @@
     "test": "jest --passWithNoTests",
     "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "prebuild": "rimraf dist",
-    "lint": "prettier-eslint '**/*.ts' --write",
+    "lint": "prettier-eslint 'src/**/*.ts' --write",
     "build": "NODE_ENV=production rollup -c",
     "prepublishOnly": "npm run build",
     "preversion": "npm test && npm run lint",

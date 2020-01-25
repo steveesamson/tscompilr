@@ -1,6 +1,6 @@
 {
   "name": "tscompilr",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This is a utility for transpiling TypeScript files to equivalent JavaScript files.",
   "types": "dist/index.d.ts",
   "files": [
